@@ -36,6 +36,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using System.Diagnostics;
 //using System.Xml.Serialization;
 //using System.IO;
 
@@ -57,6 +59,7 @@ namespace pwstore
             }
 
             déconnecterToolStripMenuItem1.Visible = false;
+            changerMotDePasseToolStripMenuItem.Visible = false;
 
         }
 
@@ -76,7 +79,7 @@ namespace pwstore
                 this.Connected = true;
                 connecterToolStripMenuItem1.Visible = false;
                 déconnecterToolStripMenuItem1.Visible = true;
-
+                changerMotDePasseToolStripMenuItem.Visible = true;
                 this.ListInfos=pwstoreTools.UnserializeList(Settings1.Default.mainpw,Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
                 if (this.ListInfos == null)
                     MessageBox.Show("Le fichier de mots de passes n'existe pas encore !", "Avertissement !");
@@ -103,6 +106,8 @@ namespace pwstore
             dataGridView1.Columns.RemoveAt(dataGridView1.Columns["Delete"].Index);
             dataGridView1.Refresh();
             dataGridView1.Visible = false;
+            changerMotDePasseToolStripMenuItem.Visible = false;
+
             SendStatusMessage("Compte déconnecté");
         }
 
@@ -129,7 +134,8 @@ namespace pwstore
             DelColumn.DataPropertyName = "Delete";
             dataGridView1.Columns.Add(DelColumn);
             dataGridView1.Height = statusStrip1.Top - dataGridView1.Top;
-            enregistrerToolStripMenuItem.Visible = true;
+            /*enregistrerToolStripMenuItem.Visible = true;
+            changerMotDePasseToolStripMenuItem.Visible = true;*/
             SendStatusMessage("Connection Réussie !");
         }
 
@@ -163,11 +169,17 @@ namespace pwstore
 
          private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (pwstoreTools.SerializeList(this.ListInfos, Settings1.Default.mainpw, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
-                 SendStatusMessage("Fichier de mots de passe encrypté et enregistré !");
+            if (Enregistrer())
+                SendStatusMessage("Fichier de mots de passe encrypté et enregistré !");
             else
                 SendStatusMessage("Impossible d'enregistrer le fichier !");
         }
+
+        private bool Enregistrer()
+        {
+            return pwstoreTools.SerializeList(this.ListInfos, Settings1.Default.mainpw, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
+        }
+
 
         private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -243,6 +255,31 @@ namespace pwstore
 
             }
              */
+        }
+
+        private void changerMotDePasseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_MasterPWChange frm = new frm_MasterPWChange(Settings1.Default.mainpw);
+            if(frm.ShowDialog()==DialogResult.OK)
+            {
+                if(frm.Tag.ToString() !="")
+                {
+                    Settings1.Default.mainpw = frm.Tag.ToString();
+                    if (Enregistrer())
+                        SendStatusMessage("Fichier de mots de passe encrypté et enregistré !");
+                    else
+                        SendStatusMessage("Impossible d'enregistrer le fichier !");
+
+                }
+                else
+                {
+                    Debug.WriteLine("tag vide");
+
+                }
+
+
+            }
+
         }
 
     }

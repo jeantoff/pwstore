@@ -79,6 +79,12 @@
       <DependentUpon>frm_MainPWEntry.cs</DependentUpon>
     </Compile>
     <Compile Include="LogInfoStore.cs" />
+    <Compile Include="frm_MasterPWChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_MasterPWChange.Designer.cs">
+      <DependentUpon>frm_MasterPWChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="pwstoreTools.cs" />
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_MainPWEntry.resx">
       <DependentUpon>frm_MainPWEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_MasterPWChange.resx">
+      <DependentUpon>frm_MasterPWChange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

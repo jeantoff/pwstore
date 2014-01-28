@@ -35,6 +35,7 @@ using System.Security.Cryptography;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Diagnostics;
 
 
 namespace pwstore
@@ -228,8 +229,60 @@ namespace pwstore
                 fsCrypt.Close();
 
                 return true;
+        }
 
-         
+
+        /// <summary>
+        /// Validate strong passwords
+        /// source :http://stackoverflow.com/questions/3131025/strong-password-regex
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns>bool</returns>
+        public static bool IsStrongPassword(string password)
+        {
+            // Minimum and Maximum Length of field - 6 to 12 Characters
+            if (password.Length < 6 || password.Length > 12)
+                return false;
+
+            // Special Characters - Not Allowed
+            // Spaces - Not Allowed
+            if (!(password.All(c => char.IsLetter(c) || char.IsDigit(c))))
+            {
+                Debug.WriteLine("catactere speciaux interdits");
+                return false;
+            }
+               
+
+            // Numeric Character - At least one character
+            if (!password.Any(c => char.IsDigit(c)))
+            {
+                Debug.WriteLine("au moins un chiffre");
+                return false;
+            }
+            // At least one Capital Letter
+            if (!password.Any(c => char.IsUpper(c)))
+            {
+                Debug.WriteLine("au moins une majuscule");
+                return false;
+            }
+            // Repetitive Characters - Allowed only two repetitive characters
+            var repeatCount = 0;
+            var lastChar = '\0';
+            foreach (var c in password)
+            {
+                if (c == lastChar)
+                    repeatCount++;
+                else
+                    repeatCount = 0;
+                if (repeatCount == 2)
+                {
+                    Debug.WriteLine("pas plus de 2 répetitions");
+                    return false;
+                }
+                 lastChar = c;
+            }
+
+            return true;
         }
 
     }

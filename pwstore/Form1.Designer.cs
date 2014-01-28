@@ -44,23 +44,23 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tb_Path = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.bp_explorePath = new System.Windows.Forms.Button();
-            this.tb_dbFileName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.bp_RecordSettings = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_logPath = new System.Windows.Forms.TextBox();
+            this.bp_RecordSettings = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tb_dbFileName = new System.Windows.Forms.TextBox();
+            this.bp_explorePath = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tb_Path = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -86,7 +86,7 @@
             // enregistrerToolStripMenuItem
             // 
             this.enregistrerToolStripMenuItem.Name = "enregistrerToolStripMenuItem";
-            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.enregistrerToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.enregistrerToolStripMenuItem.Text = "Enregistrer";
             this.enregistrerToolStripMenuItem.Visible = false;
             this.enregistrerToolStripMenuItem.Click += new System.EventHandler(this.enregistrerToolStripMenuItem_Click);
@@ -94,7 +94,7 @@
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
@@ -127,6 +127,7 @@
             this.changerMotDePasseToolStripMenuItem.Name = "changerMotDePasseToolStripMenuItem";
             this.changerMotDePasseToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.changerMotDePasseToolStripMenuItem.Text = "Changer Mot de Passe";
+            this.changerMotDePasseToolStripMenuItem.Click += new System.EventHandler(this.changerMotDePasseToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -188,6 +189,18 @@
             this.tabPage1.Text = "Liste";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(817, 322);
+            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.Visible = false;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.button1);
@@ -206,68 +219,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Config";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(817, 322);
-            this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.Visible = false;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // tb_Path
-            // 
-            this.tb_Path.Location = new System.Drawing.Point(20, 41);
-            this.tb_Path.Name = "tb_Path";
-            this.tb_Path.Size = new System.Drawing.Size(390, 20);
-            this.tb_Path.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(147, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Chemin du fichier de données";
-            // 
-            // bp_explorePath
-            // 
-            this.bp_explorePath.Location = new System.Drawing.Point(433, 41);
-            this.bp_explorePath.Name = "bp_explorePath";
-            this.bp_explorePath.Size = new System.Drawing.Size(75, 23);
-            this.bp_explorePath.TabIndex = 2;
-            this.bp_explorePath.Text = "...";
-            this.bp_explorePath.UseVisualStyleBackColor = true;
-            // 
-            // tb_dbFileName
-            // 
-            this.tb_dbFileName.Location = new System.Drawing.Point(20, 98);
-            this.tb_dbFileName.Name = "tb_dbFileName";
-            this.tb_dbFileName.Size = new System.Drawing.Size(390, 20);
-            this.tb_dbFileName.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 79);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Nom du fichier de données";
-            // 
-            // bp_RecordSettings
-            // 
-            this.bp_RecordSettings.Location = new System.Drawing.Point(393, 280);
-            this.bp_RecordSettings.Name = "bp_RecordSettings";
-            this.bp_RecordSettings.Size = new System.Drawing.Size(188, 23);
-            this.bp_RecordSettings.TabIndex = 5;
-            this.bp_RecordSettings.Text = "Enregistrer";
-            this.bp_RecordSettings.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -294,6 +245,56 @@
             this.tb_logPath.Size = new System.Drawing.Size(390, 20);
             this.tb_logPath.TabIndex = 6;
             // 
+            // bp_RecordSettings
+            // 
+            this.bp_RecordSettings.Location = new System.Drawing.Point(393, 280);
+            this.bp_RecordSettings.Name = "bp_RecordSettings";
+            this.bp_RecordSettings.Size = new System.Drawing.Size(188, 23);
+            this.bp_RecordSettings.TabIndex = 5;
+            this.bp_RecordSettings.Text = "Enregistrer";
+            this.bp_RecordSettings.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(20, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Nom du fichier de données";
+            // 
+            // tb_dbFileName
+            // 
+            this.tb_dbFileName.Location = new System.Drawing.Point(20, 98);
+            this.tb_dbFileName.Name = "tb_dbFileName";
+            this.tb_dbFileName.Size = new System.Drawing.Size(390, 20);
+            this.tb_dbFileName.TabIndex = 3;
+            // 
+            // bp_explorePath
+            // 
+            this.bp_explorePath.Location = new System.Drawing.Point(433, 41);
+            this.bp_explorePath.Name = "bp_explorePath";
+            this.bp_explorePath.Size = new System.Drawing.Size(75, 23);
+            this.bp_explorePath.TabIndex = 2;
+            this.bp_explorePath.Text = "...";
+            this.bp_explorePath.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(147, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Chemin du fichier de données";
+            // 
+            // tb_Path
+            // 
+            this.tb_Path.Location = new System.Drawing.Point(20, 41);
+            this.tb_Path.Name = "tb_Path";
+            this.tb_Path.Size = new System.Drawing.Size(390, 20);
+            this.tb_Path.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,9 +316,9 @@
             this.statusStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
