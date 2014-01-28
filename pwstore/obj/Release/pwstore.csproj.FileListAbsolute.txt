@@ -1,0 +1,11 @@
+C:\Users\Jean-Christophe\documents\visual studio 2013\Projects\pwstore\pwstore\bin\Release\pwstore.exe.config
+C:\Users\Jean-Christophe\documents\visual studio 2013\Projects\pwstore\pwstore\bin\Release\pwstore.exe
+C:\Users\Jean-Christophe\documents\visual studio 2013\Projects\pwstore\pwstore\bin\Release\pwstore.pdb
+C:\Users\Jean-Christophe\documents\visual studio 2013\Projects\pwstore\pwstore\obj\Release\pwstore.firsttimepw.resources
+C:\Users\Jean-Christophe\documents\visual studio 2013\Projects\pwstore\pwstore\obj\Release\pwstore.Form1.resources
+C:\Users\Jean-Christophe\documents\visual studio 2013\Projects\pwstore\pwstore\obj\Release\pwstore.frm_MainPWEntry.resources
+C:\Users\Jean-Christophe\documents\visual studio 2013\Projects\pwstore\pwstore\obj\Release\pwstore.Properties.Resources.resources
+C:\Users\Jean-Christophe\documents\visual studio 2013\Projects\pwstore\pwstore\obj\Release\pwstore.csproj.GenerateResource.Cache
+C:\Users\Jean-Christophe\documents\visual studio 2013\Projects\pwstore\pwstore\obj\Release\pwstore.exe
+C:\Users\Jean-Christophe\documents\visual studio 2013\Projects\pwstore\pwstore\obj\Release\pwstore.pdb
+C:\Users\Jean-Christophe\documents\visual studio 2013\Projects\pwstore\pwstore\obj\Release\pwstore.csprojResolveAssemblyReference.cache
