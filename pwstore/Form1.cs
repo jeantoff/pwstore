@@ -77,7 +77,7 @@ namespace pwstore
                 connecterToolStripMenuItem1.Visible = false;
                 déconnecterToolStripMenuItem1.Visible = true;
 
-                this.ListInfos=pwstoreTools.UnserializeList(Settings1.Default.mainpw,"");
+                this.ListInfos=pwstoreTools.UnserializeList(Settings1.Default.mainpw,Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData));
                 if (this.ListInfos == null)
                     MessageBox.Show("Le fichier de mots de passes n'existe pas encore !", "Avertissement !");
                 else
@@ -146,7 +146,7 @@ namespace pwstore
             else
             {
                 string colname = dataGridView1.Columns[e.ColumnIndex].Name;
-                if (dataGridView1.Rows[e.RowIndex].Cells[colname].Value != "" &&  dataGridView1.Rows[e.RowIndex].Cells[colname].Value !=null)
+                if (dataGridView1.Rows[e.RowIndex].Cells[colname].Value.ToString() != "" &&  dataGridView1.Rows[e.RowIndex].Cells[colname].Value !=null)
                 {
                     Clipboard.SetText(dataGridView1.Rows[e.RowIndex].Cells[colname].Value.ToString());
                     SendStatusMessage("La valeur de " + colname + " a été collée dans le presse papier");
@@ -162,8 +162,8 @@ namespace pwstore
         }
 
          private void enregistrerToolStripMenuItem_Click(object sender, EventArgs e)
-        {   
-            if( pwstoreTools.SerializeList(this.ListInfos,Settings1.Default.mainpw,""))
+        {
+            if (pwstoreTools.SerializeList(this.ListInfos, Settings1.Default.mainpw, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)))
                  SendStatusMessage("Fichier de mots de passe encrypté et enregistré !");
             else
                 SendStatusMessage("Impossible d'enregistrer le fichier !");

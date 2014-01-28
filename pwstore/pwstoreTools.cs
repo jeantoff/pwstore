@@ -31,7 +31,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using System.IO;
@@ -51,8 +50,8 @@ namespace pwstore
         {
             BindingList<LogInfoStore> listinfo = new BindingList<LogInfoStore>();
  
-            string xmlfileclear = Path.Combine(path2file , hashpw + "_clear.xml");
-            string xmlfilecrypt = Path.Combine(path2file ,hashpw + ".xml");
+            string xmlfileclear = Path.Combine(path2file , "pwdb_clear.xml");
+            string xmlfilecrypt = Path.Combine(path2file ,"pwdb.xml");
             string pwencrypt = hashpw.Substring(0, 8);
 
             if (!System.IO.File.Exists(xmlfilecrypt))
@@ -83,8 +82,8 @@ namespace pwstore
         /// <returns></returns>
         public static bool SerializeList(BindingList<LogInfoStore> listinfo,string hashpw, string path2file)
         {
-            string xmlfileclear = Path.Combine(path2file, hashpw + "_clear.xml");
-            string xmlfilecrypt = Path.Combine(path2file, hashpw + ".xml");
+            string xmlfileclear = Path.Combine(path2file, "pwdb_clear.xml");
+            string xmlfilecrypt = Path.Combine(path2file, "pwdb.xml");
             string pwencrypt = hashpw.Substring(0, 8);
 
             if (hashpw == "" || listinfo == null || listinfo.Count == 0)
